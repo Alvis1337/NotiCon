@@ -23,14 +23,6 @@ RUN apt-get install -y unzip
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
-# Download and install Chromedriver
-RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
-RUN unzip chromedriver_linux64.zip
-RUN mv chromedriver /usr/bin/chromedriver
-RUN chown root:root /usr/bin/chromedriver
-RUN chmod +x /usr/bin/chromedriver
-
-
 # Make port 80 available to the world outside this container
 EXPOSE 80
 

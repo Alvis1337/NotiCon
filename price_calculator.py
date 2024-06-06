@@ -8,14 +8,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 class PriceCalculator:
     @staticmethod
     def check_prices(search_url, price_file):
         options = Options()
-        options.headless = True
-        driver = webdriver.Chrome(options=options)
+        options.add_argument('--headless')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
         try:
             driver.get(search_url)
