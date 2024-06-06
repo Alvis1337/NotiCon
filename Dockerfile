@@ -24,7 +24,7 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 RUN dpkg -i google-chrome-stable_current_amd64.deb; apt-get -fy install
 
 # Download and install Chromedriver
-RUN wget https://chromedriver.storage.googleapis.com/2.41/chromedriver_linux64.zip
+RUN wget https://chromedriver.storage.googleapis.com/125.0.6422.141/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip
 RUN mv chromedriver /usr/bin/chromedriver
 RUN chown root:root /usr/bin/chromedriver
